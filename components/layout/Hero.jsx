@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { client, urlFor } from '@/lib/sanity';
+import Link from 'next/link';
 
 export default function Hero() {
   const [heroProduct, setHeroProduct] = useState(null);
@@ -139,9 +139,9 @@ export default function Hero() {
                   </div>
 
                   {/* Shop Now Button */}
-                  <button className='bg-green-800 hover:bg-green-900 text-white px-4 py-3 rounded-md font-bold text-base transition-all duration-300 shadow-2xl transform hover:scale-105 hover:shadow-green-800/50 cursor-pointer w-64 h-16 border border-green-800 flex items-center justify-center'>
+                  <Link href='/products' className='bg-green-800 hover:bg-green-900 text-white px-4 py-3 rounded-md font-bold text-base transition-all duration-300 transform hover:scale-105 hover:shadow-green-800/50 cursor-pointer w-64 h-16 border border-green-800 flex items-center justify-center'>
                     SHOP NOW
-                  </button>
+                  </Link>
                 </div>
               </>
             )}
