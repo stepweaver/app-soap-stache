@@ -158,7 +158,7 @@ export default function FeaturedProducts() {
       {/* View All Products Link */}
       {featuredSoaps.length > 0 && (
         <div className='text-center mt-8'>
-          <button className='bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-6 rounded-md transition-all duration-200 transform hover:scale-105 cursor-pointer'>
+          <button className='bg-green-900 hover:bg-green-800 text-white font-bold py-2 px-6 rounded-md transition-all duration-200 transform hover:scale-105 cursor-pointer'>
             View All Products
           </button>
         </div>
