@@ -147,7 +147,7 @@ export default function FeaturedProducts() {
               </div>
 
               {/* Add to Cart Button */}
-              <button className='w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-full transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg'>
+              <button className='w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-full transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'>
                 + Add To Cart
               </button>
             </div>
