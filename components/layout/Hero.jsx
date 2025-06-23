@@ -68,9 +68,9 @@ export default function Hero() {
 
   return (
     <section className='relative h-[70vh] flex items-center overflow-hidden'>
-      {/* Dynamic Background - Product Image or Fallback */}
-      <div className='absolute inset-0 z-0'>
-        {!loading && heroProduct?.photo ? (
+      {/* Dynamic Background - Fades in from black */}
+      <div className='absolute inset-0 z-0 bg-black'>
+        {!loading && heroProduct?.photo && (
           <img
             src={urlFor(heroProduct.photo)
               .width(1920)
@@ -79,14 +79,6 @@ export default function Hero() {
               .url()}
             alt={heroProduct.title}
             className='w-full h-full object-cover scale-110'
-          />
-        ) : (
-          <Image
-            src='/images/michigan_summer.png'
-            alt='Michigan Summer Beach'
-            fill
-            className='object-cover'
-            priority
           />
         )}
 
@@ -108,50 +100,45 @@ export default function Hero() {
               </div>
             )}
 
-            <h1 className='text-4xl md:text-5xl font-bold mb-4 drop-shadow-2xl leading-tight'>
-              {loading
-                ? 'FEATURED SOAP'
-                : heroProduct?.title?.toUpperCase() || 'FEATURED SOAP'}
-            </h1>
-
-            <p className='text-lg md:text-xl mb-4 drop-shadow-lg text-gray-100 max-w-2xl'>
-              {loading
-                ? 'Discover our premium handcrafted soap'
-                : heroProduct?.heroTagline ||
-                  heroProduct?.blurb ||
-                  'Discover our premium handcrafted soap'}
-            </p>
-
-            <div className='mb-6'>
-              <p className='text-sm md:text-base text-gray-200 drop-shadow-md max-w-xl'>
-                {loading
-                  ? 'Handcrafted with premium ingredients for the perfect cleansing experience.'
-                  : heroProduct?.description ||
-                    'Handcrafted with premium ingredients for the perfect cleansing experience.'}
-              </p>
-            </div>
-
-            {/* Product Details */}
             {!loading && heroProduct && (
-              <div className='flex gap-3 mb-6'>
-                {/* Price */}
-                <div className='bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/20 w-24 h-16 flex flex-col justify-center text-center'>
-                  <div className='text-lg font-bold text-yellow-400'>
-                    ${heroProduct.price}
-                  </div>
-                  <div className='text-xs text-gray-300'>
-                    {heroProduct.weight || 5} oz
-                  </div>
-                </div>
+              <>
+                <h1 className='text-4xl md:text-5xl font-bold mb-4 drop-shadow-2xl leading-tight'>
+                  {heroProduct.title?.toUpperCase()}
+                </h1>
 
-                {/* Grit Level */}
-                <div className='bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/20 w-24 h-16 flex flex-col justify-center text-center'>
-                  <div className='text-lg font-bold text-white'>
-                    {heroProduct.grit}/5
+                <p className='text-lg md:text-xl mb-4 drop-shadow-lg text-gray-100 max-w-2xl'>
+                  {heroProduct.heroTagline || heroProduct.blurb}
+                </p>
+
+                {heroProduct.description && (
+                  <div className='mb-6'>
+                    <p className='text-sm md:text-base text-gray-200 drop-shadow-md max-w-xl'>
+                      {heroProduct.description}
+                    </p>
                   </div>
-                  <div className='text-xs text-gray-300'>Grit</div>
+                )}
+
+                {/* Product Details */}
+                <div className='flex gap-3 mb-6'>
+                  {/* Price */}
+                  <div className='bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/20 w-24 h-16 flex flex-col justify-center text-center'>
+                    <div className='text-lg font-bold text-yellow-400'>
+                      ${heroProduct.price}
+                    </div>
+                    <div className='text-xs text-gray-300'>
+                      {heroProduct.weight || 5} oz
+                    </div>
+                  </div>
+
+                  {/* Grit Level */}
+                  <div className='bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/20 w-24 h-16 flex flex-col justify-center text-center'>
+                    <div className='text-lg font-bold text-white'>
+                      {heroProduct.grit}/5
+                    </div>
+                    <div className='text-xs text-gray-300'>Grit</div>
+                  </div>
                 </div>
-              </div>
+              </>
             )}
 
             {/* Call to Action Buttons */}

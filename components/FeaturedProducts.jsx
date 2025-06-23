@@ -45,7 +45,7 @@ export default function FeaturedProducts() {
     return (
       <div className='container mx-auto px-4 py-12'>
         <div className='flex justify-center items-center min-h-[200px]'>
-          <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400'></div>
+          <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-400'></div>
         </div>
       </div>
     );
