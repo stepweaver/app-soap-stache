@@ -1,0 +1,24 @@
+export default function ShopAllSection() {
+  return (
+    <div className='bg-gray-900 py-16'>
+      <div className='container mx-auto px-4 text-center'>
+        {/* Main Heading */}
+        <h2 className='text-4xl md:text-5xl font-bold text-white mb-4'>
+          EXPLORE OUR FULL COLLECTION
+        </h2>
+
+        {/* Subheading */}
+        <p className='text-xl text-gray-300 mb-8 max-w-2xl mx-auto'>
+          Discover handcrafted soaps for every skin type, scent preference, and
+          occasion. From invigorating morning blends to relaxing evening
+          formulas.
+        </p>
+
+        {/* CTA Button */}
+        <button className='bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-full text-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'>
+          Shop All Products
+        </button>
+      </div>
+    </div>
+  );
+}

@@ -1,5 +1,6 @@
 import ProductGrid from '@/components/ProductGrid';
 import FeaturedProducts from '@/components/FeaturedProducts';
+import ShopAllSection from '@/components/ShopAllSection';
 import SubscribeSection from '@/components/SubscribeSection';
 import ReviewsSection from '@/components/ReviewsSection';
 import Hero from '@/components/layout/Hero';
@@ -18,13 +19,11 @@ export default function Home() {
         {/* Subscribe & Save Section */}
         <SubscribeSection />
 
+        {/* Shop All Section */}
+        <ShopAllSection />
+
         {/* Reviews Section */}
         <ReviewsSection />
-
-        {/* All Products Section */}
-        <section className='bg-gray-50'>
-          <ProductGrid />
-        </section>
       </main>
     </div>
   );
