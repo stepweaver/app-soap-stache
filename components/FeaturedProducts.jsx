@@ -94,15 +94,15 @@ export default function FeaturedProducts() {
         {featuredSoaps.map((soap) => (
           <div
             key={soap._id}
-            className='group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-gray-200 cursor-pointer transform hover:-translate-y-1'
+            className='group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-gray-200 cursor-pointer transform hover:-translate-y-1 flex flex-col'
           >
             {/* Product Image */}
-            <div className='relative aspect-square overflow-hidden bg-gray-50'>
+            <div className='relative aspect-[3/2] overflow-hidden bg-gray-50'>
               {soap.photo && (
                 <img
                   src={urlFor(soap.photo)
                     .width(400)
-                    .height(400)
+                    .height(267)
                     .quality(85)
                     .url()}
                   alt={soap.title}
@@ -121,25 +121,28 @@ export default function FeaturedProducts() {
             </div>
 
             {/* Product Info */}
-            <div className='p-5'>
-              <div className='mb-3'>
-                <h3 className='font-bold text-lg text-gray-900 mb-1 group-hover:text-gray-700 transition-colors duration-200'>
+            <div className='p-3'>
+              {/* Title */}
+              <div className='h-12 mb-1'>
+                <h3 className='font-bold text-lg text-gray-900 group-hover:text-gray-700 transition-colors duration-200 leading-tight'>
                   {soap.title}
                 </h3>
-                <p className='text-gray-600 text-sm line-clamp-2 leading-relaxed'>
+              </div>
+
+              {/* Description */}
+              <div className='h-10 mb-2'>
+                <p className='text-gray-600 text-sm leading-relaxed line-clamp-2'>
                   {soap.blurb || soap.description}
                 </p>
               </div>
 
               {/* Price and Grit */}
-              <div className='flex items-center justify-between mb-3'>
-                <div className='flex items-center gap-3'>
-                  <span className='text-xl font-bold text-gray-900'>
-                    ${soap.price}
-                  </span>
-                  <div className='text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full'>
-                    Grit {soap.grit}/5
-                  </div>
+              <div className='h-8 flex items-center gap-3 mb-2'>
+                <span className='text-xl font-bold text-gray-900'>
+                  ${soap.price}
+                </span>
+                <div className='text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full'>
+                  Grit {soap.grit}/5
                 </div>
               </div>
 
