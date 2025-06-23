@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function ShopAllSection() {
   return (
     <div className='bg-gray-900 py-16'>
@@ -15,9 +17,9 @@ export default function ShopAllSection() {
         </p>
 
         {/* CTA Button */}
-        <button className='bg-green-800 hover:bg-green-900 text-white font-bold py-4 px-8 rounded-md text-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'>
+        <Link href='/products' className='bg-green-800 hover:bg-green-900 text-white font-bold py-4 px-8 rounded-md text-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'>
           Shop All Products
-        </button>
+        </Link>
       </div>
     </div>
   );

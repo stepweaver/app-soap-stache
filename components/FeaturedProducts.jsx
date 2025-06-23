@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { client, urlFor } from '@/lib/sanity';
 
 export default function FeaturedProducts() {
@@ -25,7 +26,11 @@ export default function FeaturedProducts() {
             isNew,
             displayStatus,
             scent,
-            slug
+            slug,
+            available,
+            loafPrice,
+            preOrderEnabled,
+            preOrderMinimum
           }
         `);
         setFeaturedSoaps(soapData);
@@ -92,8 +97,9 @@ export default function FeaturedProducts() {
       {/* Products Grid */}
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
         {featuredSoaps.map((soap) => (
-          <div
+          <Link
             key={soap._id}
+            href={`/products/${soap.slug?.current}`}
             className='group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-gray-200 cursor-pointer transform hover:-translate-y-1 flex flex-col'
           >
             {/* Product Image */}
@@ -146,21 +152,40 @@ export default function FeaturedProducts() {
                 </div>
               </div>
 
-              {/* Add to Cart Button */}
-              <button className='w-full bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'>
-                + Add To Cart
-              </button>
+              {/* Purchase Options */}
+              <div className='space-y-2'>
+                {/* Regular Purchase / Pre-order */}
+                {soap.available !== false ? (
+                  <button className='w-full bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'>
+                    + Add To Cart
+                  </button>
+                ) : soap.preOrderEnabled !== false ? (
+                  <button className='w-full bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'>
+                    Pre-Order
+                  </button>
+                ) : (
+                  <button
+                    className='w-full bg-gray-600 text-gray-300 font-bold py-2 px-4 rounded-md cursor-not-allowed opacity-75'
+                    disabled
+                  >
+                    Sold Out
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
       {/* View All Products Link */}
       {featuredSoaps.length > 0 && (
         <div className='text-center mt-8'>
-          <button className='bg-green-900 hover:bg-green-800 text-white font-bold py-2 px-6 rounded-md transition-all duration-200 transform hover:scale-105 cursor-pointer'>
+          <Link
+            href='/products'
+            className='bg-green-900 hover:bg-green-800 text-white font-bold py-2 px-6 rounded-md transition-all duration-200 transform hover:scale-105 cursor-pointer'
+          >
             View All Products
-          </button>
+          </Link>
         </div>
       )}
     </div>

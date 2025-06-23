@@ -26,7 +26,11 @@ export default function Products() {
             isNew,
             scent,
             slug,
-            displayStatus
+            displayStatus,
+            available,
+            loafPrice,
+            preOrderEnabled,
+            preOrderMinimum
           }
         `);
 

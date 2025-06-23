@@ -27,7 +27,11 @@ export default function Hero() {
             featured,
             scent,
             launchDate,
-            displayStatus
+            displayStatus,
+            available,
+            loafPrice,
+            preOrderEnabled,
+            preOrderMinimum
           }
         `);
 
@@ -47,7 +51,11 @@ export default function Hero() {
               featured,
               scent,
               launchDate,
-              displayStatus
+              displayStatus,
+              available,
+              loafPrice,
+              preOrderEnabled,
+              preOrderMinimum
             }
           `);
         }
@@ -139,7 +147,10 @@ export default function Hero() {
                   </div>
 
                   {/* Shop Now Button */}
-                  <Link href='/products' className='bg-green-800 hover:bg-green-900 text-white px-4 py-3 rounded-md font-bold text-base transition-all duration-300 transform hover:scale-105 hover:shadow-green-800/50 cursor-pointer w-64 h-16 border border-green-800 flex items-center justify-center'>
+                  <Link
+                    href='/products'
+                    className='bg-green-800 hover:bg-green-900 text-white px-4 py-3 rounded-md font-bold text-base transition-all duration-300 transform hover:scale-105 hover:shadow-green-800/50 cursor-pointer w-64 h-16 border border-green-800 flex items-center justify-center'
+                  >
                     SHOP NOW
                   </Link>
                 </div>
@@ -151,7 +162,10 @@ export default function Hero() {
 
       {/* Product Badge - Bottom Right */}
       {!loading && heroProduct?.photo && (
-        <div className='absolute bottom-4 right-4 z-10 cursor-pointer group'>
+        <Link
+          href={`/products/${heroProduct.slug?.current}`}
+          className='absolute bottom-4 right-4 z-10 cursor-pointer group'
+        >
           <div className='bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20 transition-all duration-300 group-hover:bg-white/20 group-hover:border-white/40 group-hover:scale-105 group-hover:shadow-2xl'>
             <div className='flex items-center gap-3'>
               <div className='w-12 h-12 rounded-lg overflow-hidden'>
@@ -175,7 +189,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       )}
     </section>
   );

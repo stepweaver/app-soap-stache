@@ -1,10 +1,14 @@
 'use client';
 
+import Link from 'next/link';
 import { urlFor } from '@/lib/sanity';
 
 export default function ProductCard({ soap }) {
   return (
-    <div className='group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-gray-200 cursor-pointer transform hover:-translate-y-1 flex flex-col'>
+    <Link
+      href={`/products/${soap.slug?.current}`}
+      className='group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-gray-200 cursor-pointer transform hover:-translate-y-1 flex flex-col'
+    >
       {/* Product Image */}
       <div className='relative aspect-[3/2] overflow-hidden bg-gray-50'>
         {soap.photo && (
@@ -49,11 +53,27 @@ export default function ProductCard({ soap }) {
           </div>
         </div>
 
-        {/* Add to Cart Button */}
-        <button className='w-full bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'>
-          + Add To Cart
-        </button>
+        {/* Purchase Options */}
+        <div className='space-y-2'>
+          {/* Regular Purchase / Pre-order */}
+          {soap.available !== false ? (
+            <button className='w-full bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'>
+              + Add To Cart
+            </button>
+          ) : soap.preOrderEnabled !== false ? (
+            <button className='w-full bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'>
+              Pre-Order
+            </button>
+          ) : (
+            <button
+              className='w-full bg-gray-600 text-gray-300 font-bold py-2 px-4 rounded-md cursor-not-allowed opacity-75'
+              disabled
+            >
+              Sold Out
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

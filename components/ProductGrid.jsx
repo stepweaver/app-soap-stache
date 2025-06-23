@@ -21,7 +21,11 @@ export default function ProductGrid() {
             price,
             photo,
             featured,
-            grit
+            grit,
+            available,
+            loafPrice,
+            preOrderEnabled,
+            preOrderMinimum
           }
         `);
         setSoaps(soapData);
