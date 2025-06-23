@@ -1,5 +1,6 @@
 import ProductGrid from '@/components/ProductGrid';
 import FeaturedProducts from '@/components/FeaturedProducts';
+import MichiganPrideSection from '@/components/MichiganPrideSection';
 import ShopAllSection from '@/components/ShopAllSection';
 import SubscribeSection from '@/components/SubscribeSection';
 import ReviewsSection from '@/components/ReviewsSection';
@@ -21,6 +22,9 @@ export default function Home() {
 
         {/* Shop All Section */}
         <ShopAllSection />
+        
+        {/* Michigan Pride Section */}
+        <MichiganPrideSection />
 
         {/* Reviews Section */}
         <ReviewsSection />
