@@ -201,7 +201,7 @@ export default function Footer() {
             <div className='flex flex-col md:flex-row justify-between items-center'>
               {/* Brand */}
               <div className='mb-6 md:mb-0'>
-                <h3 className='text-2xl font-bold text-green-100'>
+                <h3 className='text-2xl font-bold'>
                   SOAP STACHE
                 </h3>
                 <p className='text-gray-300 text-sm mt-1'>
