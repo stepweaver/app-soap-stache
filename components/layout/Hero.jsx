@@ -94,7 +94,7 @@ export default function Hero() {
             {/* NEW Badge */}
             {!loading && isProductNew && (
               <div className='mb-3'>
-                <span className='bg-yellow-400 text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide'>
+                <span className='bg-green-800 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wide'>
                   NEW
                 </span>
               </div>
@@ -118,11 +118,11 @@ export default function Hero() {
                   </div>
                 )}
 
-                {/* Product Details */}
-                <div className='flex gap-3 mb-6'>
+                {/* Product Details + Shop Now Button */}
+                <div className='flex gap-3 mb-6 items-center flex-wrap'>
                   {/* Price */}
-                  <div className='bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/20 w-24 h-16 flex flex-col justify-center text-center'>
-                    <div className='text-lg font-bold text-yellow-400'>
+                  <div className='bg-black/30 backdrop-blur-sm rounded-md px-4 py-3 border border-white/20 w-24 h-16 flex flex-col justify-center text-center'>
+                    <div className='text-lg font-bold text-green-100'>
                       ${heroProduct.price}
                     </div>
                     <div className='text-xs text-gray-300'>
@@ -131,25 +131,20 @@ export default function Hero() {
                   </div>
 
                   {/* Grit Level */}
-                  <div className='bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/20 w-24 h-16 flex flex-col justify-center text-center'>
+                  <div className='bg-black/30 backdrop-blur-sm rounded-md px-4 py-3 border border-white/20 w-24 h-16 flex flex-col justify-center text-center'>
                     <div className='text-lg font-bold text-white'>
                       {heroProduct.grit}/5
                     </div>
                     <div className='text-xs text-gray-300'>Grit</div>
                   </div>
+
+                  {/* Shop Now Button */}
+                  <button className='bg-green-800 hover:bg-green-900 text-white px-4 py-3 rounded-md font-bold text-base transition-all duration-300 shadow-2xl transform hover:scale-105 hover:shadow-green-800/50 cursor-pointer w-64 h-16 border border-green-800 flex items-center justify-center'>
+                    SHOP NOW
+                  </button>
                 </div>
               </>
             )}
-
-            {/* Call to Action Buttons */}
-            <div className='flex flex-col sm:flex-row gap-3'>
-              <button className='bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-full font-bold text-base transition-all duration-300 shadow-2xl transform hover:scale-105 hover:shadow-yellow-400/50 cursor-pointer'>
-                SHOP NOW
-              </button>
-              <button className='border-2 border-white text-white hover:bg-white hover:text-black px-6 py-3 rounded-full font-bold text-base transition-all duration-300 backdrop-blur-sm cursor-pointer'>
-                VIEW ALL SOAPS
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -171,10 +166,10 @@ export default function Hero() {
                 />
               </div>
               <div className='text-white'>
-                <div className='font-semibold text-xs group-hover:text-yellow-100 transition-colors duration-300'>
+                <div className='font-semibold text-xs group-hover:text-green-50 transition-colors duration-300'>
                   {heroProduct.title}
                 </div>
-                <div className='text-yellow-400 font-bold text-sm group-hover:text-yellow-300 transition-colors duration-300'>
+                <div className='text-green-600 font-bold text-sm group-hover:text-green-500 transition-colors duration-300'>
                   ${heroProduct.price}
                 </div>
               </div>

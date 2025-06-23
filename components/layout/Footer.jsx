@@ -21,8 +21,8 @@ export default function Footer() {
             Don't miss out on exclusive deals!
           </h3>
           <p className='text-gray-300 mb-6 max-w-2xl mx-auto'>
-            Sign up for our newsletter and get up to 20% off your first order,
-            plus early access to new products and Michigan-exclusive offers.
+            Get 20% off your first order, plus early access to new products and
+            special offers.
           </p>
 
           <form
@@ -34,12 +34,12 @@ export default function Footer() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder='Enter your email'
-              className='flex-1 px-4 py-3 rounded-full text-gray-900 placeholder-gray-500 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400'
+              className='flex-1 px-4 py-3 rounded-md text-gray-900 placeholder-gray-500 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-800 focus:border-green-800'
               required
             />
             <button
               type='submit'
-              className='bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-6 py-3 rounded-full transition-colors duration-200 cursor-pointer'
+              className='bg-green-800 hover:bg-green-900 text-white font-bold px-6 py-3 rounded-md transition-colors duration-200 cursor-pointer'
             >
               Sign Up
             </button>
@@ -201,7 +201,7 @@ export default function Footer() {
             <div className='flex flex-col md:flex-row justify-between items-center'>
               {/* Brand */}
               <div className='mb-6 md:mb-0'>
-                <h3 className='text-2xl font-bold text-yellow-400'>
+                <h3 className='text-2xl font-bold text-green-100'>
                   SOAP STACHE
                 </h3>
                 <p className='text-gray-300 text-sm mt-1'>
@@ -280,7 +280,7 @@ export default function Footer() {
                   href='https://stepweaver.dev'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='text-yellow-400 hover:text-yellow-300 transition-colors duration-200'
+                  className='text-green-500 hover:text-green-400 transition-colors duration-200 hover:underline'
                 >
                   λstepweaver
                 </a>

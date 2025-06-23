@@ -90,7 +90,7 @@ export default function ReviewsSection() {
             aria-label='Previous reviews'
           >
             <svg
-              className='w-5 h-5 text-orange-500'
+              className='w-5 h-5 text-green-800'
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
@@ -110,7 +110,7 @@ export default function ReviewsSection() {
             aria-label='Next reviews'
           >
             <svg
-              className='w-5 h-5 text-orange-500'
+              className='w-5 h-5 text-green-800'
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
@@ -136,7 +136,7 @@ export default function ReviewsSection() {
                   {[...Array(review.rating)].map((_, i) => (
                     <svg
                       key={i}
-                      className='w-5 h-5 text-yellow-400 fill-current'
+                      className='w-5 h-5 text-green-800 fill-current'
                       viewBox='0 0 24 24'
                     >
                       <path d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z' />

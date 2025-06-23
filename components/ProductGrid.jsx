@@ -107,7 +107,7 @@ export default function ProductGrid() {
                   {soap.title}
                 </h3>
                 {soap.featured && (
-                  <span className='bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-1 rounded-full whitespace-nowrap ml-2'>
+                  <span className='bg-green-100 text-green-900 text-xs font-medium px-2 py-1 rounded-full whitespace-nowrap ml-2'>
                     ⭐ Featured
                   </span>
                 )}

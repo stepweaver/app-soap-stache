@@ -15,7 +15,7 @@ export default function ShopAllSection() {
         </p>
 
         {/* CTA Button */}
-        <button className='bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-full text-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'>
+        <button className='bg-green-800 hover:bg-green-900 text-white font-bold py-4 px-8 rounded-md text-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'>
           Shop All Products
         </button>
       </div>

@@ -45,7 +45,7 @@ export default function FeaturedProducts() {
     return (
       <div className='container mx-auto px-4 py-12'>
         <div className='flex justify-center items-center min-h-[200px]'>
-          <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-400'></div>
+          <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-green-800'></div>
         </div>
       </div>
     );
@@ -58,7 +58,7 @@ export default function FeaturedProducts() {
           <p className='text-red-600 mb-4'>{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className='bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-full transition-colors duration-200'
+            className='bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200'
           >
             Retry
           </button>
@@ -113,7 +113,7 @@ export default function FeaturedProducts() {
               {/* NEW Badge */}
               {soap.isNew && (
                 <div className='absolute top-3 left-3'>
-                  <span className='bg-yellow-400 text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg'>
+                  <span className='bg-green-800 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wide shadow-lg'>
                     NEW
                   </span>
                 </div>
@@ -147,7 +147,7 @@ export default function FeaturedProducts() {
               </div>
 
               {/* Add to Cart Button */}
-              <button className='w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-full transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'>
+              <button className='w-full bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'>
                 + Add To Cart
               </button>
             </div>
@@ -158,7 +158,7 @@ export default function FeaturedProducts() {
       {/* View All Products Link */}
       {featuredSoaps.length > 0 && (
         <div className='text-center mt-8'>
-          <button className='bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-6 rounded-full transition-all duration-200 transform hover:scale-105 cursor-pointer'>
+          <button className='bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-6 rounded-md transition-all duration-200 transform hover:scale-105 cursor-pointer'>
             View All Products
           </button>
         </div>

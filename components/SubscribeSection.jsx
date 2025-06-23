@@ -15,9 +15,9 @@ export default function SubscribeSection() {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-5xl mx-auto'>
           {/* Ships Every 3 Months */}
           <div className='text-center'>
-            <div className='bg-green-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4'>
+            <div className='w-16 h-16 flex items-center justify-center mx-auto mb-4'>
               <svg
-                className='w-8 h-8 text-white'
+                className='w-8 h-8 text-green-700'
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
@@ -41,9 +41,9 @@ export default function SubscribeSection() {
 
           {/* Free Delivery */}
           <div className='text-center'>
-            <div className='bg-green-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4'>
+            <div className='w-16 h-16 flex items-center justify-center mx-auto mb-4'>
               <svg
-                className='w-8 h-8 text-white'
+                className='w-8 h-8 text-green-700'
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
@@ -67,9 +67,9 @@ export default function SubscribeSection() {
 
           {/* Exclusive Benefits */}
           <div className='text-center'>
-            <div className='bg-green-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4'>
+            <div className='w-16 h-16 flex items-center justify-center mx-auto mb-4'>
               <svg
-                className='w-8 h-8 text-white'
+                className='w-8 h-8 text-green-700'
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
@@ -94,7 +94,7 @@ export default function SubscribeSection() {
 
         {/* Subscribe Button */}
         <div className='text-center'>
-          <button className='bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'>
+          <button className='bg-green-800 hover:bg-green-900 text-white font-bold py-4 px-8 rounded-md text-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'>
             SUBSCRIBE & SAVE →
           </button>
         </div>

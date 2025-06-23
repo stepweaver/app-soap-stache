@@ -8,7 +8,7 @@ export default function MichiganPrideSection() {
           <div className='text-center'>
             <div className='w-16 h-16 mx-auto mb-4'>
               <svg
-                className='w-full h-full text-gray-700'
+                className='w-full h-full text-green-800'
                 fill='currentColor'
                 viewBox='0 0 24 24'
               >
@@ -29,7 +29,7 @@ export default function MichiganPrideSection() {
           <div className='text-center'>
             <div className='w-16 h-16 mx-auto mb-4'>
               <svg
-                className='w-full h-full text-gray-700'
+                className='w-full h-full text-green-800'
                 fill='currentColor'
                 viewBox='0 0 24 24'
               >
@@ -49,7 +49,7 @@ export default function MichiganPrideSection() {
           <div className='text-center'>
             <div className='w-16 h-16 mx-auto mb-4'>
               <svg
-                className='w-full h-full text-gray-700'
+                className='w-full h-full text-green-800'
                 fill='currentColor'
                 viewBox='0 0 24 24'
               >
