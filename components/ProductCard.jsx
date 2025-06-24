@@ -2,8 +2,10 @@
 
 import Link from 'next/link';
 import { urlFor } from '@/lib/sanity';
+import { useCart } from '@/contexts/CartContext';
 
 export default function ProductCard({ soap }) {
+  const { addToCart } = useCart();
   return (
     <Link
       href={`/products/${soap.slug?.current}`}
@@ -57,11 +59,24 @@ export default function ProductCard({ soap }) {
         <div className='space-y-2'>
           {/* Regular Purchase / Pre-order */}
           {soap.available !== false ? (
-            <button className='w-full bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                addToCart(soap, 'bar');
+              }}
+              className='w-full bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
+            >
               + Add To Cart
             </button>
           ) : soap.preOrderEnabled !== false ? (
             <button
+              onClick={(e) => {
+                e.preventDefault();
+                alert(
+                  'Pre-orders are only fulfilled when we have enough orders to make a batch. You will be notified when your order is ready to ship.'
+                );
+                addToCart(soap, 'bar');
+              }}
               className='w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
             >
               Pre-Order

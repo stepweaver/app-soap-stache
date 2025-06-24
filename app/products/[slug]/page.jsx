@@ -4,12 +4,14 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { client, urlFor } from '@/lib/sanity';
 import Link from 'next/link';
+import { useCart } from '@/contexts/CartContext';
 
 export default function ProductPage() {
   const params = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -224,16 +226,20 @@ export default function ProductPage() {
               <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
                 {/* Regular Purchase / Pre-order */}
                 {product.available !== false ? (
-                  <button className='bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'>
+                  <button
+                    onClick={() => addToCart(product, 'bar')}
+                    className='bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'
+                  >
                     Add to Cart - ${product.price}
                   </button>
                 ) : product.preOrderEnabled !== false ? (
                   <button
-                    onClick={() =>
+                    onClick={() => {
                       alert(
                         'Pre-orders are only fulfilled when we have enough orders to make a batch. You will be notified when your order is ready to ship.'
-                      )
-                    }
+                      );
+                      addToCart(product, 'bar');
+                    }}
                     className='bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'
                   >
                     Pre-Order - ${product.price}
@@ -249,11 +255,12 @@ export default function ProductPage() {
 
                 {/* Loaf Purchase */}
                 <button
-                  onClick={() =>
+                  onClick={() => {
                     alert(
                       'Loaves are made to order and take 2-3 weeks to fulfill. You will receive tracking information once your loaf ships.'
-                    )
-                  }
+                    );
+                    addToCart(product, 'loaf');
+                  }}
                   className='bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'
                 >
                   Buy a Loaf - ${product.loafPrice || 25}
