@@ -273,7 +273,7 @@ export default function Footer() {
           {/* Legal Links */}
           <div className='mt-8 pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400'>
             <div className='mb-4 md:mb-0'>
-              <div>© 2024 Soap Stache. All rights reserved.</div>
+              <div>© 2025 Soap Stache. All rights reserved.</div>
               <div className='mt-1'>
                 Site built by{' '}
                 <a
