@@ -61,7 +61,9 @@ export default function ProductCard({ soap }) {
               + Add To Cart
             </button>
           ) : soap.preOrderEnabled !== false ? (
-            <button className='w-full bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'>
+            <button
+              className='w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
+            >
               Pre-Order
             </button>
           ) : (

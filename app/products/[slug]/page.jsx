@@ -170,9 +170,7 @@ export default function ProductPage() {
             <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'>
               {/* Bar Price */}
               <div className='bg-black/30 backdrop-blur-sm rounded-md px-4 py-3 border border-white/20 text-center'>
-                <div className='text-2xl font-bold text-green-100'>
-                  ${product.price}
-                </div>
+                <div className='text-2xl font-bold'>${product.price}</div>
                 <div className='text-xs text-gray-300'>
                   Bar ({product.weight || 5} oz)
                 </div>
@@ -180,7 +178,7 @@ export default function ProductPage() {
 
               {/* Loaf Price */}
               <div className='bg-black/30 backdrop-blur-sm rounded-md px-4 py-3 border border-white/20 text-center'>
-                <div className='text-2xl font-bold text-green-200'>
+                <div className='text-2xl font-bold'>
                   ${product.loafPrice || 25}
                 </div>
                 <div className='text-xs text-gray-300'>Loaf</div>
@@ -226,11 +224,18 @@ export default function ProductPage() {
               <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
                 {/* Regular Purchase / Pre-order */}
                 {product.available !== false ? (
-                  <button className='bg-green-800 hover:bg-green-900 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'>
+                  <button className='bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'>
                     Add to Cart - ${product.price}
                   </button>
                 ) : product.preOrderEnabled !== false ? (
-                  <button className='bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'>
+                  <button
+                    onClick={() =>
+                      alert(
+                        'Pre-orders are only fulfilled when we have enough orders to make a batch. You will be notified when your order is ready to ship.'
+                      )
+                    }
+                    className='bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'
+                  >
                     Pre-Order - ${product.price}
                   </button>
                 ) : (
@@ -243,7 +248,14 @@ export default function ProductPage() {
                 )}
 
                 {/* Loaf Purchase */}
-                <button className='bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'>
+                <button
+                  onClick={() =>
+                    alert(
+                      'Loaves are made to order and take 2-3 weeks to fulfill. You will receive tracking information once your loaf ships.'
+                    )
+                  }
+                  className='bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'
+                >
                   Buy a Loaf - ${product.loafPrice || 25}
                   <div className='text-sm font-normal mt-1'>
                     Always available
