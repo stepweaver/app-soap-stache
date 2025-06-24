@@ -15,7 +15,7 @@ export default function AboutHero() {
 
       {/* Hero Content */}
       <div className='relative z-10 container mx-auto px-4 py-16'>
-        <div className='max-w-4xl'>
+        <div className='max-w-2xl'>
           <div className='text-white'>
             {/* Hero Title */}
             <h1 className='text-4xl md:text-6xl font-bold mb-8 drop-shadow-2xl leading-tight'>

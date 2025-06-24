@@ -111,7 +111,7 @@ export default function ProductPage() {
 
       {/* Product Content */}
       <div className='relative z-10 container mx-auto px-4 py-16'>
-        <div className='max-w-4xl'>
+        <div className='max-w-3xl'>
           <div className='text-white'>
             {/* Back to Products Link */}
             <div className='mb-6'>
@@ -210,7 +210,7 @@ export default function ProductPage() {
             {/* Scent Profile - Separate from grid */}
             {product.scent && (
               <div className='mb-8'>
-                <div className='bg-black/30 backdrop-blur-sm rounded-md px-6 py-4 border border-white/20 max-w-4xl'>
+                <div className='bg-black/30 backdrop-blur-sm rounded-md px-6 py-4 border border-white/20 max-w-3xl'>
                   <div className='text-sm text-gray-300 mb-1'>Smells Like</div>
                   <div className='text-xl font-bold text-white'>
                     {product.scent}
