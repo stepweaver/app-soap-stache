@@ -23,7 +23,7 @@ export function CartProvider({ children }) {
 
   const addToCart = (product, type = 'bar') => {
     const itemId = `${product._id}-${type}`;
-    const price = type === 'loaf' ? product.loafPrice || 25 : product.price;
+    const price = product.price;
 
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === itemId);

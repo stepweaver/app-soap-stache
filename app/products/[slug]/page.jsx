@@ -35,7 +35,6 @@ export default function ProductPage() {
             displayStatus,
             weight,
             available,
-            loafPrice,
             preOrderEnabled,
             preOrderMinimum
           }
@@ -169,35 +168,27 @@ export default function ProductPage() {
             )}
 
             {/* Product Details */}
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'>
+            <div className='flex flex-row flex-wrap gap-2 mb-3 items-center'>
               {/* Bar Price */}
-              <div className='bg-black/30 backdrop-blur-sm rounded-md px-4 py-3 border border-white/20 text-center'>
-                <div className='text-2xl font-bold'>${product.price}</div>
-                <div className='text-xs text-gray-300'>
+              <div className='bg-black/50 rounded px-3 py-1 border border-white/10 text-center min-w-[80px]'>
+                <div className='text-base font-bold'>${product.price}</div>
+                <div className='text-[11px] text-gray-300 leading-tight'>
                   Bar ({product.weight || 5} oz)
                 </div>
               </div>
-
-              {/* Loaf Price */}
-              <div className='bg-black/30 backdrop-blur-sm rounded-md px-4 py-3 border border-white/20 text-center'>
-                <div className='text-2xl font-bold'>
-                  ${product.loafPrice || 25}
-                </div>
-                <div className='text-xs text-gray-300'>Loaf</div>
-              </div>
-
               {/* Grit Level */}
-              <div className='bg-black/30 backdrop-blur-sm rounded-md px-4 py-3 border border-white/20 text-center'>
-                <div className='text-2xl font-bold text-white'>
+              <div className='bg-black/50 rounded px-3 py-1 border border-white/10 text-center min-w-[80px]'>
+                <div className='text-base font-bold text-white'>
                   {product.grit}/5
                 </div>
-                <div className='text-xs text-gray-300'>Grit Level</div>
+                <div className='text-[11px] text-gray-300 leading-tight'>
+                  Grit
+                </div>
               </div>
-
               {/* Status */}
-              <div className='bg-black/30 backdrop-blur-sm rounded-md px-4 py-3 border border-white/20 text-center'>
+              <div className='bg-black/50 rounded px-3 py-1 border border-white/10 text-center min-w-[80px]'>
                 <div
-                  className={`text-lg font-bold ${
+                  className={`text-base font-bold ${
                     product.available !== false
                       ? 'text-green-100'
                       : 'text-red-400'
@@ -205,16 +196,20 @@ export default function ProductPage() {
                 >
                   {product.available !== false ? 'Available' : 'Sold Out'}
                 </div>
-                <div className='text-xs text-gray-300'>Status</div>
+                <div className='text-[11px] text-gray-300 leading-tight'>
+                  Status
+                </div>
               </div>
             </div>
 
             {/* Scent Profile - Separate from grid */}
             {product.scent && (
-              <div className='mb-8'>
-                <div className='bg-black/30 backdrop-blur-sm rounded-md px-6 py-4 border border-white/20 max-w-3xl'>
-                  <div className='text-sm text-gray-300 mb-1'>Smells Like</div>
-                  <div className='text-xl font-bold text-white'>
+              <div className='mb-4'>
+                <div className='bg-black/40 rounded px-4 py-2 border border-white/10 max-w-xl'>
+                  <div className='text-xs text-gray-300 mb-0.5'>
+                    Smells Like
+                  </div>
+                  <div className='text-base font-semibold text-white'>
                     {product.scent}
                   </div>
                 </div>
@@ -222,57 +217,38 @@ export default function ProductPage() {
             )}
 
             {/* Action Buttons */}
-            <div className='flex flex-col gap-4 max-w-2xl'>
-              <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-                {/* Regular Purchase / Pre-order */}
-                {product.available !== false ? (
-                  <button
-                    onClick={() => addToCart(product, 'bar')}
-                    className='bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'
-                  >
-                    Add to Cart - ${product.price}
-                  </button>
-                ) : product.preOrderEnabled !== false ? (
-                  <button
-                    onClick={() => {
-                      alert(
-                        'Pre-orders are only fulfilled when we have enough orders to make a batch. You will be notified when your order is ready to ship.'
-                      );
-                      addToCart(product, 'bar');
-                    }}
-                    className='bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'
-                  >
-                    Pre-Order - ${product.price}
-                  </button>
-                ) : (
-                  <button
-                    className='bg-gray-600 text-gray-300 px-8 py-4 rounded-md font-bold text-lg cursor-not-allowed opacity-75'
-                    disabled
-                  >
-                    Sold Out
-                  </button>
-                )}
-
-                {/* Loaf Purchase */}
+            <div className='flex flex-row gap-3 max-w-xl mt-2'>
+              {/* Regular Purchase / Pre-order */}
+              {product.available !== false ? (
+                <button
+                  onClick={() => addToCart(product, 'bar')}
+                  className='bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-md font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
+                >
+                  Add to Cart - ${product.price}
+                </button>
+              ) : product.preOrderEnabled !== false ? (
                 <button
                   onClick={() => {
                     alert(
-                      'Loaves are made to order and take 2-3 weeks to fulfill. You will receive tracking information once your loaf ships.'
+                      'Pre-orders are only fulfilled when we have enough orders to make a batch. You will be notified when your order is ready to ship.'
                     );
-                    addToCart(product, 'loaf');
+                    addToCart(product, 'bar');
                   }}
-                  className='bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer'
+                  className='bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-md font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
                 >
-                  Buy a Loaf - ${product.loafPrice || 25}
-                  <div className='text-sm font-normal mt-1'>
-                    Always available
-                  </div>
+                  Pre-Order - ${product.price}
                 </button>
-              </div>
-
+              ) : (
+                <button
+                  className='bg-gray-600 text-gray-300 px-5 py-2 rounded-md font-bold text-base cursor-not-allowed opacity-75'
+                  disabled
+                >
+                  Sold Out
+                </button>
+              )}
               <Link
                 href='/products'
-                className='border-2 border-white/30 hover:border-white/50 text-white hover:bg-white/10 px-8 py-3 rounded-md font-bold text-lg transition-all duration-300 text-center'
+                className='border border-white/20 hover:border-white/40 text-white hover:bg-white/10 px-5 py-2 rounded-md font-bold text-base transition-all duration-300 text-center transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
               >
                 View More Products
               </Link>

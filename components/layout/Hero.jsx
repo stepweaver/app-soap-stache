@@ -29,7 +29,6 @@ export default function Hero() {
             launchDate,
             displayStatus,
             available,
-            loafPrice,
             preOrderEnabled,
             preOrderMinimum
           }
@@ -53,7 +52,6 @@ export default function Hero() {
               launchDate,
               displayStatus,
               available,
-              loafPrice,
               preOrderEnabled,
               preOrderMinimum
             }

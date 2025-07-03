@@ -30,7 +30,6 @@ export default function FeaturedProducts() {
             scent,
             slug,
             available,
-            loafPrice,
             preOrderEnabled,
             preOrderMinimum
           }

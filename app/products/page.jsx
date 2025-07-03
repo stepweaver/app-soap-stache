@@ -28,7 +28,6 @@ export default function Products() {
             slug,
             displayStatus,
             available,
-            loafPrice,
             preOrderEnabled,
             preOrderMinimum
           }

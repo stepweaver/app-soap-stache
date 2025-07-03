@@ -23,7 +23,6 @@ export default function ProductGrid() {
             featured,
             grit,
             available,
-            loafPrice,
             preOrderEnabled,
             preOrderMinimum
           }

@@ -106,9 +106,7 @@ export default function Cart() {
                       <h4 className='font-medium text-sm text-gray-900 truncate'>
                         {item.title}
                       </h4>
-                      <p className='text-xs text-gray-600 capitalize'>
-                        {item.type} {item.type === 'bar' && '/ One-Time'}
-                      </p>
+                      <p className='text-xs text-gray-600 capitalize'>Bar</p>
                     </div>
 
                     {/* Price and Quantity */}
@@ -178,7 +176,7 @@ export default function Cart() {
               {/* 
                 FEATURE NOTES: Rolling Pre-order Batch Counter
                 - Track first pre-order date for each product
-                - Count pre-orders from that date until batch is full (10 bars = 1 loaf)
+                - Count pre-orders from that date until batch is full (10 bars = 1 batch)
                 - Display progress to users: "X more pre-orders needed to complete batch"
                 - Reset counter when batch is fulfilled
                 - Encourage incremental purchase behavior
