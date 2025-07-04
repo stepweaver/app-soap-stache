@@ -2,7 +2,7 @@ import ProductGrid from '@/components/ProductGrid';
 import FeaturedProducts from '@/components/FeaturedProducts';
 import MichiganPrideSection from '@/components/MichiganPrideSection';
 import ShopAllSection from '@/components/ShopAllSection';
-import SubscribeSection from '@/components/SubscribeSection';
+import EmailSubscribe from '@/components/EmailSubscribe';
 import ReviewsSection from '@/components/ReviewsSection';
 import Hero from '@/components/layout/Hero';
 
@@ -17,17 +17,17 @@ export default function Home() {
           <FeaturedProducts />
         </section>
 
-        {/* Subscribe & Save Section */}
-        <SubscribeSection />
-
         {/* Shop All Section */}
         <ShopAllSection />
-        
+
         {/* Michigan Pride Section */}
         <MichiganPrideSection />
 
         {/* Reviews Section */}
         <ReviewsSection />
+
+        {/* Email Subscribe Section */}
+        <EmailSubscribe />
       </main>
     </div>
   );
