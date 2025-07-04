@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { FaChevronLeft, FaChevronRight, FaStar } from 'react-icons/fa6';
 
 const reviews = [
   {
@@ -89,19 +90,7 @@ export default function ReviewsSection() {
             className='absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white hover:bg-gray-50 border border-gray-200 rounded-full p-3 shadow-md transition-all duration-200 hover:shadow-lg z-10 cursor-pointer'
             aria-label='Previous reviews'
           >
-            <svg
-              className='w-5 h-5 text-green-800'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M15 19l-7-7 7-7'
-              />
-            </svg>
+            <FaChevronLeft className='w-5 h-5 text-green-800' />
           </button>
 
           <button
@@ -109,19 +98,7 @@ export default function ReviewsSection() {
             className='absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white hover:bg-gray-50 border border-gray-200 rounded-full p-3 shadow-md transition-all duration-200 hover:shadow-lg z-10 cursor-pointer'
             aria-label='Next reviews'
           >
-            <svg
-              className='w-5 h-5 text-green-800'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M9 5l7 7-7 7'
-              />
-            </svg>
+            <FaChevronRight className='w-5 h-5 text-green-800' />
           </button>
 
           {/* Reviews Grid */}
@@ -134,13 +111,7 @@ export default function ReviewsSection() {
                 {/* Stars */}
                 <div className='flex justify-center mb-3'>
                   {[...Array(review.rating)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className='w-5 h-5 text-green-800 fill-current'
-                      viewBox='0 0 24 24'
-                    >
-                      <path d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z' />
-                    </svg>
+                    <FaStar key={i} className='w-5 h-5 text-green-800' />
                   ))}
                 </div>
 
