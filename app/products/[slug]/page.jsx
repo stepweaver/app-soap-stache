@@ -218,40 +218,42 @@ export default function ProductPage() {
 
             {/* Action Buttons */}
             <div className='flex flex-row gap-3 max-w-xl mt-2'>
-              {/* Regular Purchase / Pre-order */}
               {product.available !== false ? (
-                <button
-                  onClick={() => addToCart(product, 'bar')}
-                  className='bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-md font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
-                >
-                  Add to Cart - ${product.price}
-                </button>
-              ) : product.preOrderEnabled !== false ? (
-                <button
-                  onClick={() => {
-                    alert(
-                      'Pre-orders are only fulfilled when we have enough orders to make a batch. You will be notified when your order is ready to ship.'
-                    );
-                    addToCart(product, 'bar');
-                  }}
-                  className='bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-md font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
-                >
-                  Pre-Order - ${product.price}
-                </button>
+                <>
+                  <button
+                    onClick={() => addToCart(product, 'bar')}
+                    className='bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-md font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
+                  >
+                    Add to Cart - ${product.price}
+                  </button>
+                  <Link
+                    href='/products'
+                    className='border border-white/20 hover:border-white/40 text-white hover:bg-white/10 px-5 py-2 rounded-md font-bold text-base transition-all duration-300 text-center transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
+                  >
+                    View More Products
+                  </Link>
+                </>
               ) : (
-                <button
-                  className='bg-gray-600 text-gray-300 px-5 py-2 rounded-md font-bold text-base cursor-not-allowed opacity-75'
-                  disabled
-                >
-                  Sold Out
-                </button>
+                <div className='w-full max-w-2xl mx-auto bg-black/40 border border-white/10 rounded px-4 py-3 text-white mt-2'>
+                  <div className='text-base font-semibold mb-2'>
+                    This product is out of stock. Subscribe for updates:
+                  </div>
+                  <form className='flex flex-col md:flex-row items-center gap-2 w-full'>
+                    <input
+                      type='email'
+                      required
+                      placeholder='Enter your email'
+                      className='flex-1 px-3 py-2 rounded-md bg-white/90 text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-700 min-w-[140px]'
+                    />
+                    <button
+                      type='submit'
+                      className='bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
+                    >
+                      Subscribe
+                    </button>
+                  </form>
+                </div>
               )}
-              <Link
-                href='/products'
-                className='border border-white/20 hover:border-white/40 text-white hover:bg-white/10 px-5 py-2 rounded-md font-bold text-base transition-all duration-300 text-center transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
-              >
-                View More Products
-              </Link>
             </div>
           </div>
         </div>
