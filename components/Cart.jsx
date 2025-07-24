@@ -3,6 +3,8 @@
 import { useCart } from '@/contexts/CartContext';
 import { urlFor } from '@/lib/sanity';
 import Link from 'next/link';
+import { useState } from 'react';
+import { getStripe } from '@/lib/stripe';
 
 export default function Cart() {
   const {
@@ -13,7 +15,59 @@ export default function Cart() {
     updateQuantity,
     getCartTotal,
     getCartItemCount,
+    clearCart,
   } = useCart();
+
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const handleCheckout = async () => {
+    if (cartItems.length === 0) return;
+
+    setIsProcessing(true);
+
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: cartItems,
+          customerEmail: '', // You can add email collection later
+        }),
+      });
+
+      const { sessionId, error } = await response.json();
+
+      if (error) {
+        console.error('Checkout error:', error);
+        alert('Failed to create checkout session. Please try again.');
+        return;
+      }
+
+      // Redirect to Stripe Checkout
+      const stripe = getStripe();
+      if (stripe) {
+        const { error: stripeError } = await stripe.redirectToCheckout({
+          sessionId,
+        });
+
+        if (stripeError) {
+          console.error('Stripe error:', stripeError);
+          alert('Failed to redirect to checkout. Please try again.');
+        }
+      } else {
+        alert(
+          'Stripe is not configured. Please check your environment variables.'
+        );
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      alert('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsProcessing(false);
+    }
+  };
 
   if (!isCartOpen) return null;
 
@@ -189,8 +243,12 @@ export default function Cart() {
             </div>
 
             {/* Checkout Button */}
-            <button className='w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-md text-lg transition-colors duration-200 cursor-pointer'>
-              PROCEED TO CHECKOUT
+            <button
+              onClick={handleCheckout}
+              disabled={isProcessing}
+              className='w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 text-white font-bold py-3 rounded-md text-lg transition-colors duration-200 cursor-pointer disabled:cursor-not-allowed'
+            >
+              {isProcessing ? 'Processing...' : 'PROCEED TO CHECKOUT'}
             </button>
           </div>
         )}

@@ -31,6 +31,7 @@ export default function Footer() {
                   src='/images/mustache.png'
                   alt='Soap Stache Logo'
                   fill
+                  sizes='(max-width: 768px) 144px, 144px'
                   className='object-contain filter brightness-0 invert'
                 />
               </div>

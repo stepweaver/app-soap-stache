@@ -1,6 +1,12 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
 
 const CartContext = createContext();
 
@@ -21,7 +27,7 @@ export function CartProvider({ children }) {
     localStorage.setItem('soap-stache-cart', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (product, type = 'bar') => {
+  const addToCart = useCallback((product, type = 'bar') => {
     const itemId = `${product._id}-${type}`;
     const price = product.price;
 
@@ -51,39 +57,44 @@ export function CartProvider({ children }) {
 
     // Show cart when item is added
     setIsCartOpen(true);
-  };
+  }, []);
 
-  const removeFromCart = (itemId) => {
+  const removeFromCart = useCallback((itemId) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
-  };
+  }, []);
 
-  const updateQuantity = (itemId, newQuantity) => {
-    if (newQuantity <= 0) {
-      removeFromCart(itemId);
-      return;
-    }
+  const updateQuantity = useCallback(
+    (itemId, newQuantity) => {
+      if (newQuantity <= 0) {
+        removeFromCart(itemId);
+        return;
+      }
 
-    setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === itemId ? { ...item, quantity: newQuantity } : item
-      )
-    );
-  };
+      setCartItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === itemId ? { ...item, quantity: newQuantity } : item
+        )
+      );
+    },
+    [removeFromCart]
+  );
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
+    console.log('Clearing cart...');
     setCartItems([]);
-  };
+    console.log('Cart cleared');
+  }, []);
 
-  const getCartTotal = () => {
+  const getCartTotal = useCallback(() => {
     return cartItems.reduce(
       (total, item) => total + item.price * item.quantity,
       0
     );
-  };
+  }, [cartItems]);
 
-  const getCartItemCount = () => {
+  const getCartItemCount = useCallback(() => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
-  };
+  }, [cartItems]);
 
   const value = {
     cartItems,
