@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useCart } from '@/contexts/CartContext';
 import { FaCheckCircle, FaHome, FaShoppingBag } from 'react-icons/fa';
 
-export default function SuccessPage() {
+// Separate component that uses useSearchParams
+function SuccessContent() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get('session_id');
   const { clearCart } = useCart();
@@ -119,5 +120,23 @@ export default function SuccessPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Loading fallback component
+function SuccessLoading() {
+  return (
+    <div className='min-h-screen bg-gray-50 flex items-center justify-center'>
+      <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-green-800'></div>
+    </div>
+  );
+}
+
+// Main page component with Suspense boundary
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={<SuccessLoading />}>
+      <SuccessContent />
+    </Suspense>
   );
 }
