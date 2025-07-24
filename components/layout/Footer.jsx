@@ -52,7 +52,7 @@ export default function Footer() {
         <div className='container mx-auto px-6 max-w-6xl'>
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16'>
             {/* Contact & Social Section */}
-            <div className='lg:col-span-1 space-y-6'>
+            <div className='lg:col-span-1 space-y-6 text-center lg:text-left'>
               <div className='space-y-2 text-sm text-gray-300'>
                 <div>Grand Rapids, MI</div>
                 <div>Monday - Friday: 9AM - 5PM EST</div>
@@ -65,7 +65,7 @@ export default function Footer() {
               </div>
 
               {/* Social Links */}
-              <div className='flex space-x-4 pt-2'>
+              <div className='flex space-x-4 pt-2 justify-center lg:justify-start'>
                 <a
                   href='https://facebook.com/soapstache'
                   className='p-2 text-gray-400 hover:text-white transition-colors'
@@ -98,7 +98,7 @@ export default function Footer() {
             </div>
 
             {/* Navigation Links */}
-            <div className='grid grid-cols-2 gap-8'>
+            <div className='grid grid-cols-2 gap-8 text-center lg:text-left'>
               <div>
                 <h4 className='font-semibold text-white mb-4'>Shop</h4>
                 <ul className='space-y-3 text-sm'>
@@ -177,7 +177,7 @@ export default function Footer() {
             </div>
 
             {/* Newsletter Signup */}
-            <div>
+            <div className='text-center lg:text-left'>
               <h4 className='font-semibold text-white mb-4'>Stay Updated</h4>
               <p className='text-sm text-gray-300 mb-4'>
                 Get grooming tips and exclusive offers delivered to your inbox.
