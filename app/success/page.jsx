@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useCart } from '@/contexts/CartContext';
@@ -12,21 +12,13 @@ export default function SuccessPage() {
   const { clearCart } = useCart();
   const [orderDetails, setOrderDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-  const cartClearedRef = useRef(false);
+  const [cartCleared, setCartCleared] = useState(false);
 
   useEffect(() => {
-    console.log('Success page mounted, sessionId:', sessionId);
-    console.log('Cart cleared ref:', cartClearedRef.current);
-
     // Clear cart on successful purchase (only once)
-    if (!cartClearedRef.current) {
-      console.log('Attempting to clear cart...');
+    if (!cartCleared) {
       clearCart();
-      // Also clear localStorage directly to ensure it's cleared
-      localStorage.removeItem('soap-stache-cart');
-      console.log('LocalStorage cleared');
-      cartClearedRef.current = true;
-      console.log('Cart cleared ref set to true');
+      setCartCleared(true);
     }
 
     // You can fetch order details here if needed
@@ -36,7 +28,7 @@ export default function SuccessPage() {
     } else {
       setLoading(false);
     }
-  }, [sessionId, clearCart]);
+  }, [sessionId, cartCleared]); // Removed clearCart from dependencies
 
   // Create a shorter, user-friendly order ID
   const getShortOrderId = (sessionId) => {

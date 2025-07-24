@@ -80,9 +80,7 @@ export function CartProvider({ children }) {
   );
 
   const clearCart = useCallback(() => {
-    console.log('Clearing cart...');
     setCartItems([]);
-    console.log('Cart cleared');
   }, []);
 
   const getCartTotal = useCallback(() => {
