@@ -35,9 +35,7 @@ export default function ProductPage() {
             launchDate,
             displayStatus,
             weight,
-            available,
-            preOrderEnabled,
-            preOrderMinimum
+            available
           }
         `,
           { slug: params.slug }

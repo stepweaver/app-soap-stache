@@ -27,9 +27,7 @@ export default function Products() {
             scent,
             slug,
             displayStatus,
-            available,
-            preOrderEnabled,
-            preOrderMinimum
+            available
           }
         `);
 

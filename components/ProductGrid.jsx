@@ -22,9 +22,7 @@ export default function ProductGrid() {
             photo,
             featured,
             grit,
-            available,
-            preOrderEnabled,
-            preOrderMinimum
+            available
           }
         `);
         setSoaps(soapData);

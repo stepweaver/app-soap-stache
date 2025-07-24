@@ -148,46 +148,6 @@ export default function Cart() {
                 ))}
               </div>
 
-              {/* TODO: Pre-order Batch Progress Feature - PLACEHOLDER UI */}
-              {/* This is a visual placeholder to show what the rolling batch counter would look like */}
-              <div className='bg-orange-50 border border-orange-200 rounded-lg p-3 mb-4'>
-                <div className='flex items-center gap-2 mb-2'>
-                  <span className='text-orange-600 font-medium'>
-                    ⏳ Pre-order Progress
-                  </span>
-                  <span className='text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full'>
-                    DEMO
-                  </span>
-                </div>
-                <div className='text-sm text-gray-600 mb-2'>
-                  Deep Woods Soap: 7/10 orders needed to complete batch
-                </div>
-                <div className='bg-orange-200 rounded-full h-2 mb-2'>
-                  <div
-                    className='bg-orange-500 h-2 rounded-full transition-all duration-300'
-                    style={{ width: '70%' }}
-                  />
-                </div>
-                <div className='text-xs text-gray-500'>
-                  Batch started: Dec 15, 2024 • 3 more orders to go!
-                </div>
-              </div>
-
-              {/* 
-                FEATURE NOTES: Rolling Pre-order Batch Counter
-                - Track first pre-order date for each product
-                - Count pre-orders from that date until batch is full (10 bars = 1 batch)
-                - Display progress to users: "X more pre-orders needed to complete batch"
-                - Reset counter when batch is fulfilled
-                - Encourage incremental purchase behavior
-                
-                Implementation:
-                - Add preOrderBatchId, preOrderBatchStartDate, preOrderBatchCount to cart items
-                - Create batch tracking in backend/database
-                - Add visual progress indicator in cart
-                - Send notifications when batches are ready
-              */}
-
               {/* You may also like - Hidden for now */}
               {/* <div className='border-t pt-4 mb-6'>
                 <h3 className='font-medium text-gray-900 mb-3'>You may also like</h3>

@@ -29,9 +29,7 @@ export default function FeaturedProducts() {
             displayStatus,
             scent,
             slug,
-            available,
-            preOrderEnabled,
-            preOrderMinimum
+            available
           }
         `);
         setFeaturedSoaps(soapData);

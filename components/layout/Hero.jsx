@@ -28,9 +28,7 @@ export default function Hero() {
             scent,
             launchDate,
             displayStatus,
-            available,
-            preOrderEnabled,
-            preOrderMinimum
+            available
           }
         `);
 
@@ -51,9 +49,7 @@ export default function Hero() {
               scent,
               launchDate,
               displayStatus,
-              available,
-              preOrderEnabled,
-              preOrderMinimum
+              available
             }
           `);
         }
