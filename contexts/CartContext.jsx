@@ -54,9 +54,6 @@ export function CartProvider({ children }) {
         ];
       }
     });
-
-    // Show cart when item is added
-    setIsCartOpen(true);
   }, []);
 
   const removeFromCart = useCallback((itemId) => {

@@ -1,6 +1,6 @@
 export default function AboutHero() {
   return (
-    <section className='relative min-h-screen flex items-center overflow-hidden'>
+    <section className='relative min-h-screen flex items-center overflow-hidden pt-16 lg:pt-20'>
       {/* Background Image */}
       <div className='absolute inset-0 z-0'>
         <img

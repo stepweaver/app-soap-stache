@@ -69,7 +69,7 @@ export default function Hero() {
   const isProductNew = heroProduct?.isNew === true;
 
   return (
-    <section className='relative h-[70vh] flex items-center overflow-hidden'>
+    <section className='relative min-h-[70vh] flex items-center overflow-hidden pt-16 lg:pt-20'>
       {/* Dynamic Background - Fades in from black */}
       <div className='absolute inset-0 z-0 bg-black'>
         {!loading && heroProduct?.photo && (

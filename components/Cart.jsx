@@ -102,7 +102,7 @@ export default function Cart() {
             🚚 FREE SHIPPING UNLOCKED!
           </div>
         ) : (
-          <div className='bg-orange-500 text-white text-center py-2 text-sm font-medium'>
+          <div className='bg-green-600 text-white text-center py-2 text-sm font-medium'>
             ${(54 - getCartTotal()).toFixed(2)} away from FREE SHIPPING!
           </div>
         )}
@@ -246,7 +246,7 @@ export default function Cart() {
             <button
               onClick={handleCheckout}
               disabled={isProcessing}
-              className='w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 text-white font-bold py-3 rounded-md text-lg transition-colors duration-200 cursor-pointer disabled:cursor-not-allowed'
+              className='w-full bg-green-800 hover:bg-green-900 disabled:bg-gray-400 text-white font-bold py-3 rounded-md text-lg transition-colors duration-200 cursor-pointer disabled:cursor-not-allowed'
             >
               {isProcessing ? 'Processing...' : 'PROCEED TO CHECKOUT'}
             </button>
