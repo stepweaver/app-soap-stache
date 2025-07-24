@@ -20,6 +20,11 @@ export default function Cart() {
 
   const [isProcessing, setIsProcessing] = useState(false);
 
+  // Demo mode detection
+  const isDemoMode =
+    process.env.NODE_ENV === 'development' ||
+    process.env.NEXT_PUBLIC_DEMO_MODE === 'true';
+
   const handleCheckout = async () => {
     if (cartItems.length === 0) return;
 
@@ -37,12 +42,19 @@ export default function Cart() {
         }),
       });
 
-      const { sessionId, error } = await response.json();
+      const { sessionId, error, demoMode, message } = await response.json();
 
       if (error) {
         console.error('Checkout error:', error);
         alert('Failed to create checkout session. Please try again.');
         return;
+      }
+
+      // Show demo notice but allow checkout to proceed
+      if (demoMode) {
+        console.log(
+          'Demo Mode: Proceeding to Stripe checkout for demonstration'
+        );
       }
 
       // Redirect to Stripe Checkout
@@ -73,13 +85,15 @@ export default function Cart() {
 
   return (
     <>
-      {/* Overlay */}
+      {/* Cart Overlay */}
       <div
-        className='fixed inset-0 bg-black/70 z-40'
+        className={`fixed inset-0 bg-black/70 z-40 transition-opacity duration-300 ${
+          isCartOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
         onClick={() => setIsCartOpen(false)}
       />
 
-      {/* Cart Slide-out */}
+      {/* Cart Sidebar */}
       <div className='fixed right-0 top-0 h-full w-96 max-w-[90vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col'>
         {/* Cart Header */}
         <div className='bg-green-800 text-white p-4 flex items-center justify-between'>
@@ -95,6 +109,13 @@ export default function Cart() {
             ×
           </button>
         </div>
+
+        {/* Demo Mode Notice in Cart */}
+        {isDemoMode && (
+          <div className='bg-yellow-500 text-black text-center py-3 px-4 font-bold text-sm'>
+            🚫 DEMO MODE - No real orders will be processed
+          </div>
+        )}
 
         {/* Free Shipping Banner */}
         {getCartTotal() >= 54 ? (

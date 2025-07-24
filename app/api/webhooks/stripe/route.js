@@ -2,6 +2,9 @@ import { stripe } from '@/lib/stripe-server';
 import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 
+// Demo mode protection
+const isDemoMode = process.env.NODE_ENV === 'development' || process.env.DEMO_MODE === 'true';
+
 export async function POST(request) {
   const body = await request.text();
   const headersList = await headers();
@@ -24,6 +27,13 @@ export async function POST(request) {
   }
 
   try {
+    // Demo mode protection - log but don't process real payments
+    if (isDemoMode) {
+      console.log('🚫 DEMO MODE: Ignoring webhook event:', event.type);
+      console.log('Event data:', JSON.stringify(event.data.object, null, 2));
+      return NextResponse.json({ received: true, demoMode: true });
+    }
+
     switch (event.type) {
       case 'checkout.session.completed':
         const session = event.data.object;

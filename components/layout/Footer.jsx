@@ -12,6 +12,11 @@ import {
 export default function Footer() {
   const [email, setEmail] = useState('');
 
+  // Demo mode detection
+  const isDemoMode =
+    process.env.NODE_ENV === 'development' ||
+    process.env.NEXT_PUBLIC_DEMO_MODE === 'true';
+
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     // TODO: Implement email signup
@@ -210,6 +215,11 @@ export default function Footer() {
           <div className='flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0'>
             <div className='text-sm text-gray-400 text-center md:text-left'>
               © 2025 Soap Stache. All rights reserved.
+              {isDemoMode && (
+                <div className='text-yellow-400 mt-1'>
+                  🚫 This is a demo site. No real orders will be processed.
+                </div>
+              )}
             </div>
 
             <div className='flex items-center space-x-6 text-sm'>

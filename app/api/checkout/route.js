@@ -2,6 +2,9 @@ import { stripe } from '@/lib/stripe-server';
 import { NextResponse } from 'next/server';
 import { urlFor } from '@/lib/sanity';
 
+// Demo mode protection
+const isDemoMode = process.env.NODE_ENV === 'development' || process.env.DEMO_MODE === 'true';
+
 export async function POST(request) {
   try {
     const { items, customerEmail } = await request.json();
@@ -11,6 +14,11 @@ export async function POST(request) {
         { error: 'No items provided' },
         { status: 400 }
       );
+    }
+
+    // Demo mode notice - allow checkout but mark as demo
+    if (isDemoMode) {
+      console.log('🚫 DEMO MODE: Creating Stripe session for demonstration');
     }
 
     // Create line items for Stripe
