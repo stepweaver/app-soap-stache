@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import {
   FaFacebook,
   FaInstagram,
@@ -20,253 +21,220 @@ export default function Footer() {
 
   return (
     <footer className='bg-gray-900 text-white'>
+      {/* Footer Header */}
+      <div className='bg-gray-950 border-b border-gray-800'>
+        <div className='container mx-auto px-6 py-12 max-w-6xl'>
+          <div className='text-center'>
+            <div className='flex justify-center items-center mb-6'>
+              <div className='relative w-36 h-22 mr-4'>
+                <Image
+                  src='/images/mustache.png'
+                  alt='Soap Stache Logo'
+                  fill
+                  className='object-contain filter brightness-0 invert'
+                />
+              </div>
+              <h2 className='text-4xl md:text-5xl font-bold tracking-tight'>
+                SOAP STACHE
+              </h2>
+            </div>
+            <p className='text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed'>
+              Premium grooming products handcrafted in Michigan. Experience the
+              difference that quality ingredients and care make.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Main Footer Content */}
       <div className='py-16'>
-        <div className='container mx-auto px-4'>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12'>
-            {/* Company Info */}
-            <div className='lg:col-span-1'>
-              <div className='mb-6'>
-                <h3 className='text-2xl font-bold mb-2'>SOAP STACHE</h3>
-                <p className='text-gray-300 text-sm'>
-                  Handcrafted in Michigan with love and care. Premium grooming
-                  products for the modern gentleman.
-                </p>
-              </div>
-              <div className='space-y-2 text-sm text-gray-300 mb-6'>
+        <div className='container mx-auto px-6 max-w-6xl'>
+          <div className='grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16'>
+            {/* Contact & Social Section */}
+            <div className='lg:col-span-1 space-y-6'>
+              <div className='space-y-2 text-sm text-gray-300'>
                 <div>Grand Rapids, MI</div>
                 <div>Monday - Friday: 9AM - 5PM EST</div>
-                <div>
-                  <a
-                    href='mailto:hello@soapstache.com'
-                    className='hover:text-white transition-colors duration-200'
-                  >
-                    hello@soapstache.com
-                  </a>
-                </div>
-                <div>
-                  <a
-                    href='tel:+1-555-SOAP-123'
-                    className='hover:text-white transition-colors duration-200'
-                  >
-                    (555) SOAP-123
-                  </a>
-                </div>
+                <a
+                  href='mailto:hello@soapstache.com'
+                  className='block hover:text-white transition-colors'
+                >
+                  hello@soapstache.com
+                </a>
               </div>
 
               {/* Social Links */}
-              <div className='flex space-x-4'>
+              <div className='flex space-x-4 pt-2'>
                 <a
                   href='https://facebook.com/soapstache'
-                  className='bg-gray-700 hover:bg-gray-600 p-3 rounded-full transition-colors duration-200'
+                  className='p-2 text-gray-400 hover:text-white transition-colors'
                   aria-label='Facebook'
                 >
-                  <FaFacebook className='w-5 h-5' />
+                  <FaFacebook size={20} />
                 </a>
                 <a
                   href='https://instagram.com/soapstache'
-                  className='bg-gray-700 hover:bg-gray-600 p-3 rounded-full transition-colors duration-200'
+                  className='p-2 text-gray-400 hover:text-white transition-colors'
                   aria-label='Instagram'
                 >
-                  <FaInstagram className='w-5 h-5' />
+                  <FaInstagram size={20} />
                 </a>
                 <a
                   href='https://twitter.com/soapstache'
-                  className='bg-gray-700 hover:bg-gray-600 p-3 rounded-full transition-colors duration-200'
-                  aria-label='X (Twitter)'
+                  className='p-2 text-gray-400 hover:text-white transition-colors'
+                  aria-label='Twitter'
                 >
-                  <FaXTwitter className='w-5 h-5' />
+                  <FaXTwitter size={20} />
                 </a>
                 <a
                   href='https://youtube.com/soapstache'
-                  className='bg-gray-700 hover:bg-gray-600 p-3 rounded-full transition-colors duration-200'
+                  className='p-2 text-gray-400 hover:text-white transition-colors'
                   aria-label='YouTube'
                 >
-                  <FaYoutube className='w-5 h-5' />
+                  <FaYoutube size={20} />
                 </a>
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h4 className='text-lg font-bold mb-6'>Quick Links</h4>
-              <ul className='space-y-3'>
-                <li>
-                  <a
-                    href='/about'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/products'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Shop All
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/ingredients'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Ingredients
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/blog'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/reviews'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Reviews
-                  </a>
-                </li>
-              </ul>
+            {/* Navigation Links */}
+            <div className='grid grid-cols-2 gap-8'>
+              <div>
+                <h4 className='font-semibold text-white mb-4'>Shop</h4>
+                <ul className='space-y-3 text-sm'>
+                  <li>
+                    <a
+                      href='/products'
+                      className='text-gray-300 hover:text-white transition-colors'
+                    >
+                      All Products
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href='/subscribe'
+                      className='text-gray-300 hover:text-white transition-colors'
+                    >
+                      Subscription
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href='/ingredients'
+                      className='text-gray-300 hover:text-white transition-colors'
+                    >
+                      Ingredients
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href='/about'
+                      className='text-gray-300 hover:text-white transition-colors'
+                    >
+                      About Us
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className='font-semibold text-white mb-4'>Support</h4>
+                <ul className='space-y-3 text-sm'>
+                  <li>
+                    <a
+                      href='/contact'
+                      className='text-gray-300 hover:text-white transition-colors'
+                    >
+                      Contact Us
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href='/faq'
+                      className='text-gray-300 hover:text-white transition-colors'
+                    >
+                      FAQ
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href='/shipping-policy'
+                      className='text-gray-300 hover:text-white transition-colors'
+                    >
+                      Shipping
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href='/return-policy'
+                      className='text-gray-300 hover:text-white transition-colors'
+                    >
+                      Returns
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            {/* Customer Service */}
+            {/* Newsletter Signup */}
             <div>
-              <h4 className='text-lg font-bold mb-6'>Customer Service</h4>
-              <ul className='space-y-3'>
-                <li>
-                  <a
-                    href='/contact'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Contact Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/shipping-policy'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Shipping Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/return-policy'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Return Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/refund-policy'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Refund Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/faq'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    FAQ
-                  </a>
-                </li>
-              </ul>
-            </div>
+              <h4 className='font-semibold text-white mb-4'>Stay Updated</h4>
+              <p className='text-sm text-gray-300 mb-4'>
+                Get grooming tips and exclusive offers delivered to your inbox.
+              </p>
 
-            {/* Subscription */}
-            <div>
-              <h4 className='text-lg font-bold mb-6'>Subscription</h4>
-              <ul className='space-y-3'>
-                <li>
-                  <a
-                    href='/subscribe'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Subscription Plans
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/manage-subscription'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Manage Subscription
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/subscription-faq'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Subscription FAQ
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/skip-delivery'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Skip Delivery
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/gift-subscription'
-                    className='text-gray-300 hover:text-white transition-colors duration-200'
-                  >
-                    Gift Subscription
-                  </a>
-                </li>
-              </ul>
+              <form onSubmit={handleEmailSubmit} className='space-y-3'>
+                <input
+                  type='email'
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder='Enter your email'
+                  className='w-full px-4 py-3 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm bg-gray-800 text-white placeholder-gray-400'
+                  required
+                />
+                <button
+                  type='submit'
+                  className='w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition-colors text-sm font-medium'
+                >
+                  Subscribe
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Section */}
-      <div className='border-t border-gray-700'>
-        <div className='container mx-auto px-4 py-8'>
-          <div className='flex flex-col lg:flex-row justify-between items-start space-y-6 lg:space-y-0'>
-            {/* Copyright */}
-            <div className='text-center lg:text-left'>
-              <div className='text-sm text-gray-400'>
-                © 2025 Soap Stache. All rights reserved.
-              </div>
-              <div className='text-sm text-gray-400 mt-1'>
-                Site built by{' '}
+      <div className='border-t border-gray-800 bg-gray-950'>
+        <div className='container mx-auto px-6 py-6 max-w-6xl'>
+          <div className='flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0'>
+            <div className='text-sm text-gray-400 text-center md:text-left'>
+              © 2025 Soap Stache. All rights reserved.
+            </div>
+
+            <div className='flex items-center space-x-6 text-sm'>
+              <a
+                href='/privacy-policy'
+                className='text-gray-400 hover:text-white transition-colors'
+              >
+                Privacy
+              </a>
+              <a
+                href='/terms-of-use'
+                className='text-gray-400 hover:text-white transition-colors'
+              >
+                Terms
+              </a>
+              <div className='text-gray-400'>
+                Built by{' '}
                 <a
                   href='https://stepweaver.dev'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='text-green-500 hover:text-green-400 transition-colors duration-200 hover:underline'
+                  className='text-green-500 hover:text-green-400 transition-colors'
                 >
                   λstepweaver
                 </a>
               </div>
-            </div>
-
-            {/* Legal Links */}
-            <div className='flex space-x-6 text-sm'>
-              <a
-                href='/terms-of-use'
-                className='text-gray-400 hover:text-white transition-colors duration-200'
-              >
-                Terms of Use
-              </a>
-              <a
-                href='/privacy-policy'
-                className='text-gray-400 hover:text-white transition-colors duration-200'
-              >
-                Privacy Policy
-              </a>
             </div>
           </div>
         </div>

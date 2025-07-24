@@ -1,7 +1,6 @@
 import FeaturedProducts from '@/components/FeaturedProducts';
 import MichiganPrideSection from '@/components/MichiganPrideSection';
 import ShopAllSection from '@/components/ShopAllSection';
-import SubscribeSection from '@/components/SubscribeSection';
 import ReviewsSection from '@/components/ReviewsSection';
 import Hero from '@/components/layout/Hero';
 
@@ -24,9 +23,6 @@ export default function Home() {
 
         {/* Reviews Section */}
         <ReviewsSection />
-
-        {/* Subscribe Section */}
-        <SubscribeSection />
       </main>
     </div>
   );
