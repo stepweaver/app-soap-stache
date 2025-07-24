@@ -1,4 +1,10 @@
 import { FaLeaf, FaHeart, FaMapMarkerAlt } from 'react-icons/fa';
+import { generateAboutMetadata } from '@/lib/metadata';
+
+// Generate metadata for the page
+export async function generateMetadata() {
+  return await generateAboutMetadata();
+}
 
 export default function About() {
   return (

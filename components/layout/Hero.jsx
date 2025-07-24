@@ -153,38 +153,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Product Badge - Bottom Right */}
-      {!loading && heroProduct?.photo && (
-        <Link
-          href={`/products/${heroProduct.slug?.current}`}
-          className='absolute bottom-4 right-4 z-10 cursor-pointer group'
-        >
-          <div className='bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/20 transition-all duration-300 group-hover:bg-white/20 group-hover:border-white/40 group-hover:scale-105 group-hover:shadow-2xl'>
-            <div className='flex items-center gap-3'>
-              <div className='w-12 h-12 rounded-lg overflow-hidden'>
-                <img
-                  src={urlFor(heroProduct.photo)
-                    .width(100)
-                    .height(100)
-                    .quality(80)
-                    .url()}
-                  alt={heroProduct.title}
-                  className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-110'
-                />
-              </div>
-              <div className='text-white'>
-                <div className='font-semibold text-xs group-hover:text-green-50 transition-colors duration-300'>
-                  {heroProduct.title}
-                </div>
-                <div className='text-green-600 font-bold text-sm group-hover:text-green-500 transition-colors duration-300'>
-                  ${heroProduct.price}
-                </div>
-              </div>
-            </div>
-          </div>
-        </Link>
-      )}
     </section>
   );
 }
