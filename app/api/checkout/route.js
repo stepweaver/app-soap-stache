@@ -12,7 +12,7 @@ export async function POST(request) {
     console.log('- STRIPE_SECRET_KEY exists:', !!process.env.STRIPE_SECRET_KEY);
     console.log('- NEXT_PUBLIC_DEMO_MODE:', process.env.NEXT_PUBLIC_DEMO_MODE);
     console.log('- NODE_ENV:', process.env.NODE_ENV);
-    
+
     const { items, customerEmail } = await request.json();
 
     if (!items || items.length === 0) {
@@ -123,7 +123,7 @@ export async function POST(request) {
   } catch (error) {
     console.error('Checkout error:', error.message);
     console.error('Full error:', error);
-    
+
     // Check if it's a Stripe configuration error
     if (error.message.includes('No such api_key')) {
       return NextResponse.json(
@@ -131,7 +131,7 @@ export async function POST(request) {
         { status: 500 }
       );
     }
-    
+
     // Check if it's a missing environment variable
     if (!process.env.STRIPE_SECRET_KEY) {
       return NextResponse.json(
@@ -139,7 +139,7 @@ export async function POST(request) {
         { status: 500 }
       );
     }
-    
+
     return NextResponse.json(
       { error: 'Failed to create checkout session', details: error.message },
       { status: 500 }
