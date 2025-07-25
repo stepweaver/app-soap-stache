@@ -4,7 +4,6 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { CartProvider } from '@/contexts/CartContext';
 import Cart from '@/components/Cart';
-import DemoBanner from '@/components/DemoBanner';
 import Script from 'next/script';
 
 const geistSans = Geist({
@@ -177,7 +176,6 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <CartProvider>
-          <DemoBanner />
           <Navbar />
           {children}
           <Footer />
