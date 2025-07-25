@@ -14,7 +14,7 @@ export default function StructuredData({ type, data }) {
             '@type': 'PostalAddress',
             addressCountry: 'US',
             addressRegion: 'MI',
-            addressLocality: 'Grand Rapids',
+            addressLocality: 'Muskegon',
           },
           contactPoint: {
             '@type': 'ContactPoint',
@@ -136,7 +136,7 @@ export default function StructuredData({ type, data }) {
           email: 'hello@soapstache.com',
           address: {
             '@type': 'PostalAddress',
-            addressLocality: 'Grand Rapids',
+            addressLocality: 'Muskegon',
             addressRegion: 'MI',
             addressCountry: 'US',
           },

@@ -59,7 +59,7 @@ export default function ContactForm() {
             value={formData.firstName}
             onChange={handleInputChange}
             required
-            className='w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white placeholder-gray-500'
+            className='w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white placeholder-gray-500 text-gray-900'
             placeholder='John'
           />
         </div>
@@ -77,7 +77,7 @@ export default function ContactForm() {
             value={formData.lastName}
             onChange={handleInputChange}
             required
-            className='w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white placeholder-gray-500'
+            className='w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white placeholder-gray-500 text-gray-900'
             placeholder='Doe'
           />
         </div>
@@ -97,7 +97,7 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleInputChange}
           required
-          className='w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white placeholder-gray-500'
+          className='w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white placeholder-gray-500 text-gray-900'
           placeholder='john@example.com'
         />
       </div>
@@ -155,7 +155,7 @@ export default function ContactForm() {
           onChange={handleInputChange}
           required
           rows={6}
-          className='w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white resize-none placeholder-gray-500'
+          className='w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white resize-none placeholder-gray-500 text-gray-900'
           placeholder='Tell us how we can help you...'
         />
       </div>

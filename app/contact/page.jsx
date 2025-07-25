@@ -24,7 +24,7 @@ export default function Contact() {
     {
       icon: FaMapMarkerAlt,
       title: 'Location',
-      content: 'Grand Rapids, Michigan',
+      content: 'Muskegon, Michigan',
       link: null,
     },
     {

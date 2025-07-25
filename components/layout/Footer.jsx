@@ -57,7 +57,7 @@ export default function Footer() {
             {/* Contact & Social Section */}
             <div className='lg:col-span-1 space-y-6 text-center lg:text-left'>
               <div className='space-y-2 text-sm text-gray-300'>
-                <div>Grand Rapids, MI</div>
+                <div>Muskegon, MI</div>
                 <div>Monday - Friday: 9AM - 5PM EST</div>
                 <a
                   href='mailto:hello@soapstache.com'
