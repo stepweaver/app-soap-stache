@@ -1,0 +1,11 @@
+# Apple Touch Icon Placeholder
+
+This file should be replaced with an actual 180x180 PNG image for the Apple Touch Icon.
+
+The image should be:
+- 180x180 pixels
+- PNG format
+- Feature the Soap Stache logo/mustache design
+- Use the brand colors (#166534 green)
+
+For now, you can use the existing mustache.png image from the images folder and resize it to 180x180 pixels. 

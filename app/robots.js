@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       disallow: ['/admin/', '/api/', '/_next/', '/studio/'],
     },
-    sitemap: 'https://soapstache.com/sitemap.xml',
+    sitemap: 'https://app-soap-stache.vercel.app/sitemap.xml',
   };
 } 

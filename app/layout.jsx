@@ -4,6 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { CartProvider } from '@/contexts/CartContext';
 import Cart from '@/components/Cart';
+import DemoBanner from '@/components/DemoBanner';
 import Script from 'next/script';
 
 const geistSans = Geist({
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://soapstache.com'),
+  metadataBase: new URL('https://app-soap-stache.vercel.app'),
   title: {
     default: 'Soap Stache - Handcrafted Artisan Soaps',
     template: '%s | Soap Stache',
@@ -49,7 +50,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://soapstache.com',
+    url: 'https://app-soap-stache.vercel.app',
     siteName: 'Soap Stache',
     title: 'Soap Stache - Handcrafted Artisan Soaps',
     description:
@@ -104,7 +105,7 @@ export const metadata = {
     yahoo: 'your-yahoo-verification-code',
   },
   alternates: {
-    canonical: 'https://soapstache.com',
+    canonical: 'https://app-soap-stache.vercel.app',
   },
   category: 'shopping',
   classification: 'business',
@@ -149,8 +150,8 @@ export default function RootLayout({ children }) {
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'Soap Stache',
-              url: 'https://soapstache.com',
-              logo: 'https://soapstache.com/images/mustache.png',
+              url: 'https://app-soap-stache.vercel.app',
+              logo: 'https://app-soap-stache.vercel.app/images/mustache.png',
               description:
                 'Handcrafted artisan soaps made with natural ingredients and Michigan pride',
               address: {
@@ -176,6 +177,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <CartProvider>
+          <DemoBanner />
           <Navbar />
           {children}
           <Footer />

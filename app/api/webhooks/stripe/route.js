@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 
 // Demo mode protection
-const isDemoMode = process.env.NODE_ENV === 'development' || process.env.DEMO_MODE === 'true';
+const isDemoMode = process.env.NODE_ENV === 'development' || process.env.NEXT_PUBLIC_DEMO_MODE === 'true';
 
 export async function POST(request) {
   const body = await request.text();
