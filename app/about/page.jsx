@@ -44,7 +44,7 @@ export default function About() {
               <p className='text-lg text-gray-600 leading-relaxed mb-6'>
                 We're a little soap shop with big mitten-state energy. Every bar
                 is hand-crafted from locally sourced oils, butters, and
-                botanicals—because we like our carbon footprint as clean as your
+                botanicals-because we like our carbon footprint as clean as your
                 skin.
               </p>
               <p className='text-lg text-gray-600 leading-relaxed'>
@@ -199,7 +199,7 @@ export default function About() {
           </h2>
           <p className='text-xl text-gray-300 mb-8 max-w-2xl mx-auto'>
             Grab a bar, lather up, and let every shower feel like a Great Lakes
-            adventure—no flannel beard required.
+            adventure-no flannel beard required.
           </p>
           <a
             href='/products'

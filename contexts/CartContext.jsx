@@ -13,6 +13,8 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartBounce, setCartBounce] = useState(false);
+  const [lastAddedItem, setLastAddedItem] = useState(null);
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -30,6 +32,17 @@ export function CartProvider({ children }) {
   const addToCart = useCallback((product, type = 'bar') => {
     const itemId = `${product._id}-${type}`;
     const price = product.price;
+
+    // Set the last added item for animation feedback
+    setLastAddedItem({
+      id: itemId,
+      title: product.title,
+      timestamp: Date.now(),
+    });
+
+    // Trigger cart bounce animation
+    setCartBounce(true);
+    setTimeout(() => setCartBounce(false), 600);
 
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === itemId);
@@ -101,6 +114,8 @@ export function CartProvider({ children }) {
     clearCart,
     getCartTotal,
     getCartItemCount,
+    cartBounce,
+    lastAddedItem,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

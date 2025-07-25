@@ -34,7 +34,7 @@ export default function AboutHero() {
                   Born on the breezy shores of Muskegon, Michigan, Soap Stache
                   is a little soap shop with big mitten-state energy. We
                   hand-craft every bar from locally sourced oils, butters, and
-                  botanicals—because we like our carbon footprint as clean as
+                  botanicals-because we like our carbon footprint as clean as
                   your skin.
                 </p>
 
@@ -47,7 +47,7 @@ export default function AboutHero() {
 
                 <p className='text-gray-100'>
                   So grab a bar, lather up, and let every shower feel like a
-                  Great Lakes adventure—no flannel beard required.
+                  Great Lakes adventure-no flannel beard required.
                 </p>
               </div>
             </div>

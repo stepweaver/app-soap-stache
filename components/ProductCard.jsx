@@ -3,9 +3,21 @@
 import Link from 'next/link';
 import { urlFor } from '@/lib/sanity';
 import { useCart } from '@/contexts/CartContext';
+import { useState } from 'react';
 
 export default function ProductCard({ soap }) {
   const { addToCart } = useCart();
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    setIsClicked(true);
+    addToCart(soap, 'bar');
+
+    // Reset the click state after animation
+    setTimeout(() => setIsClicked(false), 200);
+  };
+
   return (
     <Link
       href={`/products/${soap.slug?.current}`}
@@ -60,13 +72,12 @@ export default function ProductCard({ soap }) {
           {/* Only allow Add to Cart if available, otherwise show Sold Out */}
           {soap.available !== false ? (
             <button
-              onClick={(e) => {
-                e.preventDefault();
-                addToCart(soap, 'bar');
-              }}
-              className='w-full bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
+              onClick={handleAddToCart}
+              className={`w-full bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer whitespace-nowrap ${
+                isClicked ? 'scale-95 bg-green-700' : ''
+              }`}
             >
-              + Add To Cart
+              Add To Cart
             </button>
           ) : (
             <button
