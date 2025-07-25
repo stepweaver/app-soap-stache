@@ -12,10 +12,8 @@ import {
 export default function Footer() {
   const [email, setEmail] = useState('');
 
-  // Demo mode detection
-  const isDemoMode =
-    process.env.NODE_ENV === 'development' ||
-    process.env.NEXT_PUBLIC_DEMO_MODE === 'true';
+  // Demo mode detection - always show in production for safety
+  const isDemoMode = true;
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();

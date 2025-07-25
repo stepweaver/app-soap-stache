@@ -20,10 +20,8 @@ export default function Cart() {
 
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // Demo mode detection
-  const isDemoMode =
-    process.env.NODE_ENV === 'development' ||
-    process.env.NEXT_PUBLIC_DEMO_MODE === 'true';
+  // Demo mode detection - always show in production for safety
+  const isDemoMode = true;
 
   const handleCheckout = async () => {
     if (cartItems.length === 0) return;
