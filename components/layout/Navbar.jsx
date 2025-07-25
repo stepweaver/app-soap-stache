@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCart } from '@/contexts/CartContext';
@@ -8,13 +8,26 @@ import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { getCartItemCount, setIsCartOpen } = useCart();
+  const [showNotification, setShowNotification] = useState(false);
+  const { getCartItemCount, setIsCartOpen, cartBounce, lastAddedItem } =
+    useCart();
 
   const navLinks = [
     { href: '/products', label: 'SHOP' },
     { href: '/about', label: 'OUR STORY' },
     { href: '/contact', label: 'CONTACT' },
   ];
+
+  // Show notification when item is added
+  useEffect(() => {
+    if (lastAddedItem) {
+      setShowNotification(true);
+      const timer = setTimeout(() => {
+        setShowNotification(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [lastAddedItem]);
 
   return (
     <>
@@ -57,7 +70,9 @@ export default function Navbar() {
               {/* Cart Icon */}
               <button
                 onClick={() => setIsCartOpen(true)}
-                className='relative p-2 rounded-full text-white hover:text-green-200 hover:bg-green-700/50 transition-all duration-300 hover:scale-110 cursor-pointer group'
+                className={`relative p-2 rounded-full text-white hover:text-green-200 hover:bg-green-700/50 transition-all duration-300 hover:scale-110 cursor-pointer group ${
+                  cartBounce ? 'animate-bounce' : ''
+                }`}
                 aria-label='Shopping Cart'
               >
                 <FaShoppingCart size={18} />
@@ -103,6 +118,18 @@ export default function Navbar() {
           </div>
         )}
       </nav>
+
+      {/* Success Notification */}
+      {showNotification && lastAddedItem && (
+        <div className='fixed top-20 right-4 z-50 bg-green-600 text-white px-4 py-3 rounded-md shadow-lg transform transition-all duration-300 ease-in-out'>
+          <div className='flex items-center space-x-2'>
+            <span className='text-green-200 text-lg'>✓</span>
+            <span className='text-sm font-medium'>
+              Added {lastAddedItem.title} to cart!
+            </span>
+          </div>
+        </div>
+      )}
 
       {/* Spacer to prevent content from hiding behind fixed navbar */}
       <div className='h-16 lg:h-20'></div>

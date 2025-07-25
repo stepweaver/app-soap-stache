@@ -9,6 +9,7 @@ export default function FeaturedProducts() {
   const [featuredSoaps, setFeaturedSoaps] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [clickedButtons, setClickedButtons] = useState({});
   const { addToCart } = useCart();
 
   useEffect(() => {
@@ -44,6 +45,19 @@ export default function FeaturedProducts() {
 
     fetchFeaturedSoaps();
   }, []);
+
+  const handleAddToCart = (e, soap) => {
+    e.preventDefault();
+    const buttonId = soap._id;
+
+    setClickedButtons((prev) => ({ ...prev, [buttonId]: true }));
+    addToCart(soap, 'bar');
+
+    // Reset the click state after animation
+    setTimeout(() => {
+      setClickedButtons((prev) => ({ ...prev, [buttonId]: false }));
+    }, 200);
+  };
 
   if (loading) {
     return (
@@ -156,13 +170,12 @@ export default function FeaturedProducts() {
                 {/* Only allow Add to Cart if available, otherwise show Sold Out */}
                 {soap.available !== false ? (
                   <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      addToCart(soap, 'bar');
-                    }}
-                    className='w-full bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer'
+                    onClick={(e) => handleAddToCart(e, soap)}
+                    className={`w-full bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 transform group-hover:scale-105 shadow-md hover:shadow-lg cursor-pointer whitespace-nowrap ${
+                      clickedButtons[soap._id] ? 'scale-95 bg-green-700' : ''
+                    }`}
                   >
-                    + Add To Cart
+                    Add To Cart
                   </button>
                 ) : (
                   <button

@@ -2,8 +2,8 @@ import { stripe } from '@/lib/stripe-server';
 import { NextResponse } from 'next/server';
 import { urlFor } from '@/lib/sanity';
 
-// Demo mode protection
-const isDemoMode = process.env.NODE_ENV === 'development' || process.env.NEXT_PUBLIC_DEMO_MODE === 'true';
+// Demo mode protection - default to true for safety
+const isDemoMode = process.env.NODE_ENV === 'development' || process.env.NEXT_PUBLIC_DEMO_MODE === 'true' || true;
 
 export async function POST(request) {
   try {
