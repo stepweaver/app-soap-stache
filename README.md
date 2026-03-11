@@ -1,8 +1,10 @@
-# Soap Stache 🧼
+# Soap Stache
 
-A modern e-commerce platform for handcrafted soaps, built with Next.js, Sanity CMS, and Stripe payments. This project features a beautiful, responsive design with Michigan pride themes and comprehensive product management.
+A modern e-commerce demo for handcrafted soaps, built with Next.js, Sanity CMS, and Stripe payments. This project features a beautiful, responsive design with Michigan pride themes and comprehensive product management.
 
-## 🚀 Features
+> **Demo Site Notice:** This is a demonstration project. All user-input forms—including contact, newsletter signup, and checkout—are for demonstration purposes only. No real orders are processed, no emails are sent, and no payments are charged. The site showcases web development skills and e-commerce architecture.
+
+## Features
 
 - **Modern E-commerce**: Complete shopping cart and checkout experience
 - **Content Management**: Sanity CMS for easy product and content management
@@ -13,7 +15,20 @@ A modern e-commerce platform for handcrafted soaps, built with Next.js, Sanity C
 - **Real-time Updates**: Live content updates through Sanity
 - **SEO Optimized**: Next.js App Router with optimized performance
 
-## 🛠️ Tech Stack
+## Demo Forms & Interactive Elements
+
+All forms on this site are non-functional and for demonstration only:
+
+| Form | Location | Behavior |
+|------|----------|----------|
+| **Contact** | `/contact` | Simulates submission; displays success message; no email sent |
+| **Newsletter signup** | Footer, home page | Logs to console; no subscription created |
+| **Checkout** | Cart → Stripe | Demo mode; no real payments processed |
+| **Subscription** | `/subscribe` | Plans displayed; "Coming Soon" button; no signup |
+
+A persistent demo banner at the top of each page reminds visitors that no real orders are processed.
+
+## Tech Stack
 
 ### Frontend
 
@@ -40,7 +55,15 @@ A modern e-commerce platform for handcrafted soaps, built with Next.js, Sanity C
 - **PostCSS** - CSS processing
 - **Turbopack** - Fast bundler for development
 
-## 📁 Project Structure
+## Project Structure & Architecture
+
+### Dynamic Routes
+
+Product pages use Next.js dynamic routing (`/products/[slug]`). Each product in Sanity has a unique slug; visiting `/products/your-product-slug` renders a detail page with full product information, images, and add-to-cart functionality. Content is fetched at build time or on demand via Sanity GROQ queries.
+
+### Centralised Content
+
+All product data, images, and content are managed in **Sanity CMS**. The `lib/sanity.js` client and GROQ queries fetch content from Sanity's dataset. Adding or editing products in Sanity Studio automatically updates the site—no component logic changes required. Schema types (`soapType.js`, `subscriberType.js`) define the content structure.
 
 ```
 soap-stache/
@@ -69,7 +92,7 @@ soap-stache/
     └── sanity.config.js     # Sanity configuration
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -147,7 +170,7 @@ soap-stache/
    ```
    Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-## 📝 Content Management with Sanity
+## Content Management with Sanity
 
 ### Product Schema
 
@@ -182,7 +205,7 @@ The project includes a comprehensive product schema with the following fields:
 - **Content Preview**: See how content will appear on the website
 - **Version Control**: Track content changes over time
 
-## 💳 E-commerce Features
+## E-commerce Features (Demo)
 
 ### Shopping Cart
 
@@ -191,12 +214,12 @@ The project includes a comprehensive product schema with the following fields:
 - Quantity management
 - Cart total calculation
 
-### Checkout Process
+### Checkout Process (Demo)
 
-- Stripe Checkout integration
-- Secure payment processing
-- Order confirmation
-- Webhook handling for order updates
+- Stripe Checkout integration for demonstration
+- Simulated payment flow; no real charges in demo mode
+- Order confirmation and success page
+- Webhook handling structure in place (no live processing)
 
 ### Product Management
 
@@ -205,7 +228,7 @@ The project includes a comprehensive product schema with the following fields:
 - Inventory tracking
 - Featured product sections
 
-## 🎨 Design System
+## Design System
 
 ### Components
 
@@ -221,7 +244,7 @@ The project includes a comprehensive product schema with the following fields:
 - **Custom Components**: Reusable UI elements
 - **Michigan Theme**: Local branding and colors
 
-## 🔧 API Routes
+## API Routes
 
 ### Stripe Integration
 
@@ -234,7 +257,16 @@ The project includes a comprehensive product schema with the following fields:
 - Real-time content updates
 - Image optimization and transformation
 
-## 🚀 Deployment
+## Deployment
+
+### Development Scripts
+
+| Command | Location | Purpose |
+|---------|----------|---------|
+| `npm run dev` | app-soap-stache | Start Next.js dev server (port 3000) |
+| `npm run dev` | studio-soap-stache | Start Sanity Studio (port 3333) |
+| `npm run build` | app-soap-stache | Production build for deployment |
+| `npm start` | app-soap-stache | Run production build locally |
 
 ### Frontend (Next.js)
 
@@ -244,6 +276,8 @@ npm run build
 npm start
 ```
 
+Deploy the `app-soap-stache` directory to Vercel, Netlify, or similar. The build outputs a static-optimised bundle; ensure the platform supports Next.js App Router.
+
 ### Sanity Studio
 
 ```bash
@@ -251,6 +285,8 @@ cd studio-soap-stache
 npm run build
 npm run deploy
 ```
+
+Sanity Studio can be deployed to sanity.io hosting or self-hosted. Content editors use the Studio to manage products and subscribers.
 
 ### Environment Variables
 
@@ -260,7 +296,7 @@ Ensure all environment variables are set in your deployment platform:
 - Netlify
 - AWS, Google Cloud, or other platforms
 
-## 📊 Performance
+## Performance
 
 - **Next.js App Router**: Optimized routing and rendering
 - **Image Optimization**: Sanity image transformation
@@ -268,14 +304,14 @@ Ensure all environment variables are set in your deployment platform:
 - **CDN**: Content delivery network for static assets
 - **Turbopack**: Fast development builds
 
-## 🔒 Security
+## Security
 
 - **Environment Variables**: Secure API key management
 - **Stripe Security**: PCI-compliant payment processing
 - **Sanity Security**: Role-based access control
 - **Input Validation**: Client and server-side validation
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -283,18 +319,18 @@ Ensure all environment variables are set in your deployment platform:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+## Support
 
 - **Documentation**: Check the respective documentation for each tool
 - **Sanity**: [Sanity Documentation](https://www.sanity.io/docs)
 - **Next.js**: [Next.js Documentation](https://nextjs.org/docs)
 - **Stripe**: [Stripe Documentation](https://stripe.com/docs)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Sanity for the excellent headless CMS
 - Vercel for Next.js and deployment platform
